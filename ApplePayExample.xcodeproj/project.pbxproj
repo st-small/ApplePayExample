@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8453D7F22343B06D00528A91 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8453D7F12343B06D00528A91 /* PassKit.framework */; };
 		84C632A72343773C004F2843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C632A62343773C004F2843 /* AppDelegate.swift */; };
 		84C632A92343773C004F2843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C632A82343773C004F2843 /* ViewController.swift */; };
 		84C632AC2343773C004F2843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C632AA2343773C004F2843 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8453D7F12343B06D00528A91 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		84C632A32343773C004F2843 /* ApplePayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplePayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C632A62343773C004F2843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C632A82343773C004F2843 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,7 @@
 		84C632AD2343773C004F2843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C632B02343773C004F2843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C632B22343773C004F2843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C632B823437D98004F2843 /* ApplePayExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ApplePayExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +32,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8453D7F22343B06D00528A91 /* PassKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8453D7F02343B06D00528A91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8453D7F12343B06D00528A91 /* PassKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84C6329A2343773C004F2843 = {
 			isa = PBXGroup;
 			children = (
 				84C632A52343773C004F2843 /* ApplePayExample */,
 				84C632A42343773C004F2843 /* Products */,
+				8453D7F02343B06D00528A91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +67,7 @@
 		84C632A52343773C004F2843 /* ApplePayExample */ = {
 			isa = PBXGroup;
 			children = (
+				84C632B823437D98004F2843 /* ApplePayExample.entitlements */,
 				84C632A62343773C004F2843 /* AppDelegate.swift */,
 				84C632A82343773C004F2843 /* ViewController.swift */,
 				84C632AA2343773C004F2843 /* Main.storyboard */,
@@ -96,6 +110,14 @@
 				TargetAttributes = {
 					84C632A22343773C004F2843 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -282,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ApplePayExample/ApplePayExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = ApplePayExample/Info.plist;
@@ -300,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ApplePayExample/ApplePayExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = ApplePayExample/Info.plist;
