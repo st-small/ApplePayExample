@@ -19,7 +19,11 @@ public class ViewController: UIViewController {
         request.merchantCapabilities = .capability3DS
         request.countryCode = "US"
         request.currencyCode = "USD"
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "iPhone Xs 64 Gb", amount: 34999.99)]
+
+        request.paymentSummaryItems =
+            [PKPaymentSummaryItem(label: "Много много кофе в Кузине", amount: 1000.01),
+             PKPaymentSummaryItem(label: "Чаевые разработчикам", amount: 10000.00),
+             PKPaymentSummaryItem(label: "Доставка", amount: 4.99)]
         return request
     }()
 
@@ -39,7 +43,10 @@ public class ViewController: UIViewController {
 extension ViewController: PKPaymentAuthorizationViewControllerDelegate {
     
     public func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+        }
     }
     
     public func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
